@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merch &mdash; The Green Banana</title>
+<meta name="description" content="Tees, stickers, keychains and totes from The Green Banana. Isla Vista, Goleta and Santa Barbara.">
+<meta name="theme-color" content="#265930">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .merch-hero{ background:var(--green-soft); padding:56px 0 44px; }
+  .merch-hero h1{ font-size:clamp(2rem,5vw,3.1rem); margin:.2em 0 .35em; }
+  .merch-hero p{ max-width:640px; color:var(--ink-soft); font-size:1.05rem; }
+  .merch-note{ background:var(--cream); border-left:4px solid var(--gold); padding:16px 20px;
+    border-radius:10px; margin-top:26px; max-width:680px; font-size:.94rem; color:var(--ink); }
+
+  .merch-section{ padding:56px 0; }
+  .merch-section--alt{ background:var(--green-soft); }
+  .merch-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:30px; }
+  .merch-grid--two{ grid-template-columns:repeat(2,1fr); max-width:760px; margin-left:auto; margin-right:auto; }
+  @media(max-width:900px){ .merch-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:620px){ .merch-grid,.merch-grid--two{ grid-template-columns:1fr; } }
+
+  .merch-card{ background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow);
+    overflow:hidden; display:flex; flex-direction:column; }
+  .merch-stage{ aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; padding:18px; }
+  .stage-cream{ background:var(--cream); } .stage-sand{ background:var(--tan); }
+  .stage-mint{ background:#dfe9dc; } .stage-white{ background:#f2f2ee; }
+  .merch-stage svg{ width:100%; height:100%; }
+  .merch-body{ padding:18px 20px 22px; border-top:1px solid #eee; }
+  .merch-body h3{ margin:0 0 4px; font-size:1.05rem; }
+  .merch-body .sku{ font-size:.76rem; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--gold); font-weight:800; }
+  .merch-body p{ margin:8px 0 0; font-size:.9rem; color:var(--ink-soft); line-height:1.5; }
+  .merch-price{ margin-top:12px; font-weight:800; color:var(--green-deep); font-size:1.05rem; }
+  .merch-price span{ font-weight:500; color:var(--ink-soft); font-size:.82rem; }
+
+  .pill{ display:inline-block; background:var(--green-deep); color:#fff; font-size:.68rem;
+    font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:4px 10px;
+    border-radius:999px; margin-bottom:8px; }
+  .pill--soon{ background:var(--tan); color:var(--crust); }
+
+  .merch-cta{ background:var(--green-deep); color:#fff; padding:52px 0; text-align:center; }
+  .merch-cta h2{ color:#fff; margin:0 0 10px; }
+  .merch-cta p{ color:#d9e5d6; max-width:560px; margin:0 auto 22px; }
+  .btn-cream{ background:var(--cream); color:var(--green-deep); font-weight:800;
+    padding:14px 26px; border-radius:999px; display:inline-block; text-decoration:none; }
+  .btn-cream:hover{ background:#fff; }
+</style>
+</head>
+<body>
+
+<div class="announce-bar">
+  Merch is coming soon &mdash; tell us what you&rsquo;d actually wear and we&rsquo;ll print that first
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="images/logo.png" alt="The Green Banana logo">
+      <span class="logo-text">The Green Banana</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="drop.html">Today&rsquo;s Bake</a>
+      <a href="index.html#nutrition">The Science</a>
+      <a href="index.html#products">Products</a>
+      <a href="merch.html">Merch</a>
+      <a href="team.html">Our Team</a>
+      <a href="index.html#plans">Subscriptions</a>
+      <a href="index.html#signup" class="nav-cta">Join the Waitlist</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="merch-hero">
+    <div class="wrap">
+      <p class="eyebrow">Merch</p>
+      <h1>Wear the banana.</h1>
+      <p>Green bananas, surfboards, and one monkey. Designed for Isla Vista, printed small, and
+         sold at cost-plus because the point is that you wear it down Pardall, not that we make
+         money on cotton.</p>
+      <div class="merch-note">
+        <strong>Coming soon.</strong> None of this is printed yet and none of it is for sale.
+        We&rsquo;re showing you the designs to work out which ones are worth ordering &mdash; we would
+        rather print two hundred of one good thing than fifty each of six. Tell us what you&rsquo;d
+        actually wear and that is what gets made first.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STICKERS ============ -->
+  <section class="merch-section">
+    <div class="wrap">
+      <p class="eyebrow">Start here</p>
+      <h2 class="section-title" style="text-align:left">Stickers</h2>
+      <p class="section-sub" style="text-align:left;margin-left:0">Die-cut vinyl, weatherproof,
+        roughly 3 inches on the long edge. The cheapest thing we make and the one most likely to
+        end up on a laptop in Davidson Library.</p>
+
+      <div class="merch-grid">
+
+        <article class="merch-card">
+          <div class="merch-stage stage-cream">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Round logo sticker">
+              <circle cx="120" cy="104" r="82" fill="#fff" stroke="#265930" stroke-width="8"/>
+              <circle cx="120" cy="104" r="69" fill="none" stroke="#f5b83c" stroke-width="3"/>
+              <g transform="translate(120 104) scale(.52) translate(-130 -134)">
+                <path d="M78 68 C70 80 68 98 73 118 C84 164 122 196 166 200 C176 201 184 195 187 186
+                         C190 176 186 166 176 162 C132 144 103 110 96 70 C93 58 84 54 78 68 Z"
+                      fill="#3d7a49"/>
+                <path d="M86 76 C80 88 80 102 84 118 C94 156 124 184 160 190"
+                      fill="none" stroke="#265930" stroke-width="6" stroke-linecap="round" opacity=".4"/>
+              </g>
+              <text x="120" y="214" text-anchor="middle" font-family="Poppins,sans-serif"
+                    font-size="15" font-weight="800" fill="#265930" letter-spacing=".6">THE GREEN BANANA</text>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="sku">ST-01</span>
+            <h3>The seal</h3>
+            <p>The mark on its own. Goes on everything &mdash; bread bags, water bottles, the back
+               of the Subaru.</p>
+            <p class="merch-price">Coming soon <span>&middot; free with your first loaf</span></p>
+          </div>
+        </article>
+
+        <article class="merch-card">
+          <div class="merch-stage stage-sand">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Banana surfboard sticker">
+              <g transform="rotate(-34 120 116)">
+                <path d="M120 18 C133 58 139 114 138 158 C137 188 131 206 120 206
+                         C109 206 103 188 102 158 C101 114 107 58 120 18 Z"
+                      fill="#3d7a49" stroke="#265930" stroke-width="3"/>
+                <path d="M117 204 C119 222 124 236 133 244 C120 240 111 226 109 206 Z"
+                      fill="#265930"/>
+                <path d="M111 46 C106 88 105 136 110 180" fill="none" stroke="#265930"
+                      stroke-width="4" stroke-linecap="round" opacity=".3"/>
+                <ellipse cx="120" cy="14" rx="6" ry="8" fill="#8a5a34"/>
+              </g>
+              <path d="M18 196 Q 60 180 100 196 T 182 196 T 236 186" fill="none"
+                    stroke="#265930" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+              <path d="M18 214 Q 64 200 108 214 T 190 212" fill="none"
+                    stroke="#265930" stroke-width="5" stroke-linecap="round" opacity=".3"/>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="sku">ST-02</span>
+            <h3>Board banana</h3>
+            <p>A green banana that is also a shortboard. The joke lands in about half a second,
+               which is exactly how long a sticker gets.</p>
+            <p class="merch-price">Coming soon</p>
+          </div>
+        </article>
+
+        <article class="merch-card">
+          <div class="merch-stage stage-mint">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Monkey sticker">
+              <circle cx="58" cy="96" r="26" fill="#8a5a34"/><circle cx="58" cy="96" r="14" fill="#dccea9"/>
+              <circle cx="182" cy="96" r="26" fill="#8a5a34"/><circle cx="182" cy="96" r="14" fill="#dccea9"/>
+              <ellipse cx="120" cy="108" rx="62" ry="58" fill="#8a5a34"/>
+              <ellipse cx="120" cy="126" rx="44" ry="36" fill="#dccea9"/>
+              <ellipse cx="100" cy="98" rx="9" ry="11" fill="#23261f"/>
+              <ellipse cx="140" cy="98" rx="9" ry="11" fill="#23261f"/>
+              <ellipse cx="120" cy="124" rx="7" ry="5" fill="#8a5a34"/>
+              <path d="M100 140 Q120 154 140 140" fill="none" stroke="#8a5a34"
+                    stroke-width="5" stroke-linecap="round"/>
+              <g transform="translate(168 136) rotate(26) scale(.52)">
+                <path d="M0 0 C-6 10 -5 24 1 38 C13 68 42 90 70 95 C79 96 85 92 87 85
+                         C89 77 85 70 77 67 C45 55 25 32 19 6 C16 -4 6 -8 0 0 Z"
+                      fill="#3d7a49" stroke="#265930" stroke-width="4" stroke-linejoin="round"/>
+              </g>
+              <text x="120" y="222" text-anchor="middle" font-family="Poppins,sans-serif"
+                    font-size="21" font-weight="900" fill="#265930" letter-spacing="1">EAT GREEN</text>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="sku">ST-03</span>
+            <h3>Monkey</h3>
+            <p>Holding a green one, obviously. The only piece of the system that has a face, which
+               makes it the one people actually stick on things.</p>
+            <p class="merch-price">Coming soon</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEES ============ -->
+  <section class="merch-section merch-section--alt">
+    <div class="wrap">
+      <p class="eyebrow">Cotton</p>
+      <h2 class="section-title" style="text-align:left">Tees</h2>
+      <p class="section-sub" style="text-align:left;margin-left:0">Heavyweight, garment-dyed,
+        boxy rather than slim. Printed to order in the first run so we&rsquo;re not guessing sizes.</p>
+
+      <div class="merch-grid">
+
+        <article class="merch-card">
+          <div class="merch-stage stage-white">
+            <svg viewBox="0 0 300 300" role="img" aria-label="Deep green tee with logo">
+              <path d="M62 44 L108 22 Q150 52 192 22 L238 44 L266 100 L226 120 L226 278
+                       Q150 290 74 278 L74 120 L34 100 Z" fill="#265930"/>
+              <path d="M108 22 Q150 52 192 22" fill="none" stroke="#1b3f22" stroke-width="5"/>
+              <path d="M74 120 L34 100 M226 120 L266 100" stroke="#1b3f22" stroke-width="3" fill="none"/>
+              <g transform="translate(150 152) scale(.62) translate(-120 -120)">
+                <path d="M78 68 C70 80 68 98 73 118 C84 164 122 196 166 200 C176 201 184 195 187 186
+                         C190 176 186 166 176 162 C132 144 103 110 96 70 C93 58 84 54 78 68 Z"
+                      fill="#f7f0de"/>
+              </g>
+              <text x="150" y="226" text-anchor="middle" font-family="Poppins,sans-serif"
+                    font-size="11.5" font-weight="800" fill="#f7f0de" letter-spacing="1.1">THE GREEN BANANA</text>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="pill">Print first</span>
+            <span class="sku">TS-01</span>
+            <h3>The house tee</h3>
+            <p>Cream mark on deep green. No slogan, no year, nothing that dates it. This is the one
+               we&rsquo;d wear behind the stall.</p>
+            <p class="merch-price">Coming soon <span>&middot; S&ndash;XXL</span></p>
+          </div>
+        </article>
+
+        <article class="merch-card">
+          <div class="merch-stage stage-white">
+            <svg viewBox="0 0 300 300" role="img" aria-label="Cream tee with Bali Bread surf graphic">
+              <path d="M62 44 L108 22 Q150 52 192 22 L238 44 L266 100 L226 120 L226 278
+                       Q150 290 74 278 L74 120 L34 100 Z" fill="#f7f0de"/>
+              <path d="M108 22 Q150 52 192 22" fill="none" stroke="#ded3b6" stroke-width="5"/>
+              <path d="M74 120 L34 100 M226 120 L266 100" stroke="#ded3b6" stroke-width="3" fill="none"/>
+              <text x="150" y="124" text-anchor="middle" font-family="Poppins,sans-serif"
+                    font-size="27" font-weight="900" fill="#265930" letter-spacing="1">BALI BREAD</text>
+              <g transform="translate(150 172) rotate(-80) scale(.44) translate(-120 -118)">
+                <path d="M120 14 C142 58 152 118 146 172 C142 206 132 222 120 222
+                         C108 222 98 206 94 172 C88 118 98 58 120 14 Z"
+                      fill="#3d7a49" stroke="#265930" stroke-width="3"/>
+                <path d="M120 26 C120 82 120 150 120 210" fill="none" stroke="#f7f0de"
+                      stroke-width="4" stroke-linecap="round" opacity=".85"/>
+              </g>
+              <path d="M92 212 Q120 202 148 212 T 208 210" fill="none" stroke="#265930"
+                    stroke-width="4" stroke-linecap="round" opacity=".5"/>
+              <text x="150" y="244" text-anchor="middle" font-family="Inter,sans-serif"
+                    font-size="10" font-weight="700" fill="#5a5f52" letter-spacing="3.4">ISLA VISTA &middot; CALIF.</text>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="pill">Print first</span>
+            <span class="sku">TS-02</span>
+            <h3>Bali Bread surf tee</h3>
+            <p>Reads like a surf shop from forty years ago and happens to be a bakery. The banana
+               is lying flat, which is the whole joke.</p>
+            <p class="merch-price">Coming soon <span>&middot; S&ndash;XXL</span></p>
+          </div>
+        </article>
+
+        <article class="merch-card">
+          <div class="merch-stage stage-white">
+            <svg viewBox="0 0 300 300" role="img" aria-label="Sand tee with resistant starch back print">
+              <path d="M62 44 L108 22 Q150 52 192 22 L238 44 L266 100 L226 120 L226 278
+                       Q150 290 74 278 L74 120 L34 100 Z" fill="#dccea9"/>
+              <path d="M108 22 Q150 52 192 22" fill="none" stroke="#c3b48c" stroke-width="5"/>
+              <path d="M74 120 L34 100 M226 120 L266 100" stroke="#c3b48c" stroke-width="3" fill="none"/>
+              <text x="150" y="118" text-anchor="middle" font-family="Poppins,sans-serif"
+                    font-size="34" font-weight="900" fill="#265930" letter-spacing="-.5">PICKED</text>
+              <text x="150" y="152" text-anchor="middle" font-family="Poppins,sans-serif"
+                    font-size="34" font-weight="900" fill="#265930" letter-spacing="-.5">GREEN</text>
+              <path d="M96 166 L204 166" stroke="#8a5a34" stroke-width="3"/>
+              <text x="150" y="190" text-anchor="middle" font-family="Inter,sans-serif"
+                    font-size="10.5" font-weight="600" fill="#5a5f52" letter-spacing=".4">before the starch turns to sugar</text>
+              <g transform="translate(150 230) scale(.26) translate(-120 -134)">
+                <path d="M78 68 C70 80 68 98 73 118 C84 164 122 196 166 200 C176 201 184 195 187 186
+                         C190 176 186 166 176 162 C132 144 103 110 96 70 C93 58 84 54 78 68 Z"
+                      fill="#3d7a49"/>
+              </g>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="pill pill--soon">Maybe</span>
+            <span class="sku">TS-03</span>
+            <h3>&ldquo;Picked green&rdquo;</h3>
+            <p>The one line that explains the whole company. Wordier than the other two, and it
+               will either be the best-selling piece or the one we have a box of forever.</p>
+            <p class="merch-price">Coming soon <span>&middot; S&ndash;XXL</span></p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE REST ============ -->
+  <section class="merch-section">
+    <div class="wrap">
+      <p class="eyebrow">Everything else</p>
+      <h2 class="section-title" style="text-align:left">Small goods</h2>
+
+      <div class="merch-grid">
+
+        <article class="merch-card">
+          <div class="merch-stage stage-cream">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Enamel banana keychain">
+              <circle cx="120" cy="34" r="15" fill="none" stroke="#c8c8c0" stroke-width="7"/>
+              <rect x="115" y="44" width="10" height="22" rx="4" fill="#c8c8c0"/>
+              <g transform="translate(120 148) rotate(12) translate(-120 -130)">
+                <path d="M78 68 C70 80 68 98 73 118 C84 164 122 196 166 200 C176 201 184 195 187 186
+                         C190 176 186 166 176 162 C132 144 103 110 96 70 C93 58 84 54 78 68 Z"
+                      fill="#3d7a49" stroke="#f5b83c" stroke-width="6" stroke-linejoin="round"/>
+                <path d="M86 76 C80 88 80 102 84 118 C94 156 124 184 160 190"
+                      fill="none" stroke="#eaf0e8" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+              </g>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="sku">KC-01</span>
+            <h3>Enamel keychain</h3>
+            <p>Hard enamel, gold plating, about 4cm. Heavy enough that it feels like something.</p>
+            <p class="merch-price">Coming soon</p>
+          </div>
+        </article>
+
+        <article class="merch-card">
+          <div class="merch-stage stage-mint">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Canvas tote bag">
+              <path d="M52 78 L188 78 L198 216 L42 216 Z" fill="#f7f0de" stroke="#ded3b6" stroke-width="3"/>
+              <path d="M86 78 C86 44 106 30 120 30 C134 30 154 44 154 78" fill="none"
+                    stroke="#8a5a34" stroke-width="9" stroke-linecap="round"/>
+              <g transform="translate(120 138) scale(.34) translate(-120 -130)">
+                <path d="M78 68 C70 80 68 98 73 118 C84 164 122 196 166 200 C176 201 184 195 187 186
+                         C190 176 186 166 176 162 C132 144 103 110 96 70 C93 58 84 54 78 68 Z"
+                      fill="#265930"/>
+              </g>
+              <text x="120" y="188" text-anchor="middle" font-family="Poppins,sans-serif"
+                    font-size="11" font-weight="800" fill="#265930" letter-spacing="1.6">THE GREEN BANANA</text>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="sku">TO-01</span>
+            <h3>Bread tote</h3>
+            <p>12oz natural canvas, sized so two loaves sit flat in the bottom rather than standing
+               on end. That is the only design requirement that mattered.</p>
+            <p class="merch-price">Coming soon</p>
+          </div>
+        </article>
+
+        <article class="merch-card">
+          <div class="merch-stage stage-sand">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Embroidered cap">
+              <path d="M46 152 C46 92 80 58 120 58 C160 58 194 92 194 152 Z" fill="#265930"/>
+              <path d="M120 58 C120 58 120 110 120 152" stroke="#1b3f22" stroke-width="3" fill="none"/>
+              <path d="M84 62 C92 108 92 130 92 152" stroke="#1b3f22" stroke-width="2.5" fill="none" opacity=".7"/>
+              <path d="M156 62 C148 108 148 130 148 152" stroke="#1b3f22" stroke-width="2.5" fill="none" opacity=".7"/>
+              <circle cx="120" cy="60" r="7" fill="#f5b83c"/>
+              <path d="M46 152 L194 152 C214 152 224 164 222 176 L44 176 C38 176 40 152 46 152 Z" fill="#1b3f22"/>
+              <g transform="translate(120 118) scale(.34) translate(-130 -134)">
+                <path d="M78 68 C70 80 68 98 73 118 C84 164 122 196 166 200 C176 201 184 195 187 186
+                         C190 176 186 166 176 162 C132 144 103 110 96 70 C93 58 84 54 78 68 Z"
+                      fill="#f5b83c"/>
+              </g>
+            </svg>
+          </div>
+          <div class="merch-body">
+            <span class="pill pill--soon">Later</span>
+            <span class="sku">CP-01</span>
+            <h3>Six-panel cap</h3>
+            <p>Gold banana embroidered on deep green, unstructured, no branding on the back.
+               Minimum order is high, so this one waits until there is demand to point at.</p>
+            <p class="merch-price">Coming soon</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="merch-cta">
+    <div class="wrap">
+      <h2>Which of these should we actually print?</h2>
+      <p>We&rsquo;d rather print two hundred of one good thing than fifty each of six. Tell us what
+         you&rsquo;d wear and we&rsquo;ll make that.</p>
+      <a href="index.html#signup" class="btn btn-cream">Tell us in the waitlist form</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <img class="logo-mark logo-mark--footer" src="images/logo.png" alt="The Green Banana logo">
+      <span class="logo-text">The Green Banana</span>
+      <p class="footer-tag">Green banana flour bread &amp; premixes, baked local to the South Coast.</p>
+    </div>
+    <div class="footer-contact">
+      <p>Questions? <a href="mailto:milo@balibread.com">milo@balibread.com</a></p>
+      <p class="footer-note">Isla Vista &middot; Goleta &middot; Santa Barbara</p>
+    </div>
+  </div>
+  <p class="footer-fine">&copy; <span id="year"></span> Green Banana LLC &middot; Santa Barbara County, California. Made in a home kitchen operation that is not subject to routine government food safety inspection.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 // and works offline for repeat visitors (e.g. checking your plan or the
 // delivery-area info with no signal). Ordering itself still needs network.
 
-const CACHE_NAME = "green-banana-v3";
+const CACHE_NAME = "green-banana-v5";
 const APP_SHELL = [
   "./",
   "./index.html",

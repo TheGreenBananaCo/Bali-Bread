@@ -124,7 +124,7 @@ checkout and billing.
 ## Part 4 — upgrade the waitlist form (optional)
 
 Right now, submitting the waitlist form opens a pre-filled email to
-`milo@ftatlantic.com` — works with zero setup. For a cleaner inline "you're
+`milo@balibread.com` — works with zero setup. For a cleaner inline "you're
 on the list" confirmation instead of an email app opening:
 
 1. Create a free form at [formspree.io](https://formspree.io) and get its

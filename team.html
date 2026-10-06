@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet the Team — The Green Banana</title>
+<meta name="description" content="The people behind The Green Banana. A café in Bali changed their minds about bread; the recipes were worked out from scratch in Santa Barbara. Meet Milo and Erol.">
+<meta name="theme-color" content="#265930">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ===== Team page — layered on top of the shared brand stylesheet ===== */
+
+  .team-hero{
+    background: var(--green-deep);
+    color: var(--cream);
+    padding: 74px 0 82px;
+    position:relative; overflow:hidden;
+  }
+  .team-hero::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(circle at 88% 8%, rgba(245,184,60,0.16), transparent 58%);
+  }
+  .team-hero .wrap{ position:relative; z-index:1; }
+  .team-hero .eyebrow{ color: var(--gold); }
+  .team-hero h1{
+    color: var(--cream);
+    font-size: clamp(2.4rem, 6vw, 3.7rem);
+    max-width: 17ch; margin-bottom:.4em;
+  }
+  .team-hero h1 .accent{ color: var(--gold); }
+  .team-hero-sub{
+    color: rgba(247,240,222,0.84);
+    font-size:1.1rem; max-width: 54ch; margin:0;
+  }
+
+  /* --- the roster --- */
+  .roster{ padding: 78px 0 30px; background: var(--cream); }
+  .roster-grid{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap:26px; margin-top:26px;
+  }
+  .member{
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--gold);
+    display:flex; flex-direction:column;
+  }
+  /* --- the shared Bali shot --- */
+  .team-shot{
+    margin: 34px 0 0; border-radius: var(--radius); overflow:hidden;
+    background: var(--white); box-shadow: 0 18px 44px rgba(47,75,60,0.18);
+  }
+  .team-shot img{ width:100%; display:block; }
+  .team-shot figcaption{
+    padding: 15px 22px 18px; font-size:.92rem; color: var(--ink-soft);
+    background: var(--white);
+  }
+  .member-body{ padding: 24px 26px 28px; display:flex; flex-direction:column; flex:1; }
+  .member-role{
+    font-family: var(--font-head); font-weight:800; font-size:.7rem;
+    letter-spacing:.15em; text-transform:uppercase;
+    color: var(--gold); margin-bottom:7px;
+  }
+  .member h2{ font-size:1.42rem; margin-bottom:.45em; }
+  .member p{ font-size:.95rem; color: var(--ink-soft); margin:0 0 .9em; }
+  .member p:last-child{ margin-bottom:0; }
+  .member-tag{
+    margin-top:auto; padding-top:16px; border-top:1px solid var(--green-soft);
+    font-size:.82rem; color: var(--green-mid); font-weight:600;
+  }
+
+  /* --- origin story --- */
+  .origin{ padding: 76px 0; background: var(--green-soft); }
+  .origin-inner{ display:grid; grid-template-columns: 1fr 1fr; gap:52px; align-items:center; }
+  .origin-photo{
+    border-radius: var(--radius); overflow:hidden;
+    box-shadow: 0 20px 50px rgba(47,75,60,0.18);
+    aspect-ratio: 5 / 4;
+  }
+  .origin-photo img{ width:100%; height:100%; object-fit:cover; }
+  .origin blockquote{
+    margin: 24px 0 0; padding: 0 0 0 22px;
+    border-left: 4px solid var(--gold);
+    font-family: var(--font-head); font-weight:700;
+    font-size:1.2rem; color: var(--green-deep); line-height:1.35;
+  }
+
+  /* --- origin photo strip --- */
+  .origin-strip{
+    display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:44px;
+  }
+  .origin-shot{
+    border-radius:12px; overflow:hidden; background: var(--white);
+    box-shadow: 0 8px 22px rgba(47,75,60,0.12);
+  }
+  .origin-shot img{ width:100%; aspect-ratio: 4/3; object-fit:cover; display:block; }
+  .origin-shot figcaption{
+    padding: 11px 14px 13px; font-size:.8rem; color: var(--ink-soft); line-height:1.4;
+  }
+  @media (max-width: 700px){ .origin-strip{ grid-template-columns:1fr; } }
+
+  /* --- what we stand for --- */
+  .stands{ padding: 76px 0; background: var(--cream); }
+  .stands-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:24px; margin-top:36px; }
+  .stand{
+    background: var(--white); border-radius: var(--radius);
+    padding: 28px 26px; box-shadow: var(--shadow);
+    border-top: 4px solid var(--green-mid);
+  }
+  .stand h3{ font-size:1.14rem; margin-bottom:.45em; }
+  .stand p{ font-size:.94rem; color: var(--ink-soft); margin:0; }
+
+  /* --- closing CTA --- */
+  .team-cta{
+    padding: 74px 0; background: var(--green-deep); color: var(--cream); text-align:center;
+  }
+  .team-cta h2{ color: var(--cream); font-size: clamp(1.8rem,4.4vw,2.5rem); }
+  .team-cta p{ color: rgba(247,240,222,0.82); max-width:52ch; margin:0 auto 26px; }
+  .team-cta .btn-gold{
+    background: var(--gold); color:#2b2410; box-shadow: 0 6px 18px rgba(245,184,60,0.28);
+  }
+  .team-cta .btn-gold:hover{ background:#ffc95c; }
+  .team-cta .btn-outline-cream{
+    background:transparent; border-color: rgba(247,240,222,0.45); color: var(--cream);
+  }
+  .team-cta .btn-outline-cream:hover{ background: rgba(247,240,222,0.1); }
+  .cta-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+
+  @media (max-width: 900px){
+    .roster-grid{ grid-template-columns: repeat(2,1fr); }
+    .stands-grid{ grid-template-columns:1fr; }
+    .origin-inner{ grid-template-columns:1fr; gap:30px; }
+  }
+  @media (max-width: 620px){
+    .roster-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="announce-bar">
+  Baking small batches in Santa Barbara &mdash; <a href="drop.html" style="color:inherit;text-decoration:underline;">see today&rsquo;s bake</a>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="images/logo.png" alt="The Green Banana logo">
+      <span class="logo-text">The Green Banana</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="drop.html">Today&rsquo;s Bake</a>
+      <a href="index.html#nutrition">The Science</a>
+      <a href="index.html#products">Products</a>
+      <a href="merch.html">Merch</a>
+      <a href="team.html">Our Team</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#signup" class="nav-cta">Join the Waitlist</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="team-hero">
+    <div class="wrap">
+      <p class="eyebrow">Meet the team</p>
+      <h1>Two founders, one idea that <span class="accent">wouldn&rsquo;t leave</span>.</h1>
+      <p class="team-hero-sub">
+        A business trip to Bali, one bad wipeout, and a caf&eacute; that had built its whole menu
+        on a flour we had never heard of. We came home with no recipes and one question we could
+        not put back down: <em>why isn&rsquo;t bread at home like this?</em> The Green Banana is our
+        answer, baked fresh here in Santa Barbara.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ROSTER ============ -->
+  <section class="roster">
+    <div class="wrap">
+      <p class="eyebrow">Who&rsquo;s behind it</p>
+      <h2>The two of us.</h2>
+
+      <figure class="team-shot">
+        <img src="images/team-bali.jpg"
+             alt="Milo and Erol at the caf&eacute; in Bali where they first ate green banana flour">
+        <figcaption>The caf&eacute; in Bali. This is where it got in.</figcaption>
+      </figure>
+
+      <div class="roster-grid">
+
+        <article class="member">
+          <div class="member-body">
+            <div class="member-role">Co-founder &middot; CEO</div>
+            <h2>Milo Stewart</h2>
+            <p>Milo built his foundation as a high-performance athlete on the University of Southern California football team, then spent years as a top trainer at one of the world&rsquo;s premier health clubs, coaching performance and nutrition. None of it prepared him for what a water bug could do. When he could barely eat, the first thing he kept down was green banana bread from a small caf&eacute; in Bali. That first bite became breakfast, lunch and dinner there for the rest of the trip.</p>
+            <p>Runs the permits, the recipes, and the part nobody romanticises &mdash; getting up at five to actually bake the thing.</p>
+            <div class="member-tag">Santa Barbara, CA</div>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="member-body">
+            <div class="member-role">Co-founder &middot; CTO</div>
+            <h2>Erol Morko&ccedil;</h2>
+            <p>At 13, Erol was diagnosed with a cancer so rare and so aggressive that the treatment that saved his life was a last-ditch therapy developed at the university he would later attend. He came out of it grateful, and has never once complained about the lifelong sensitivity to gluten and dairy it left him with. In that caf&eacute; in Bali he noticed something new: after a big meal, his stomach wasn&rsquo;t throbbing and his skin wasn&rsquo;t swollen. That was the moment the idea became a company. Today he handles production, sourcing, and everything that has to work the same way twice.</p>
+            <p>If a batch is consistent, that&rsquo;s him.</p>
+            <div class="member-tag">Operations &amp; production</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ORIGIN STORY ============ -->
+  <section class="origin">
+    <div class="wrap origin-inner">
+      <div>
+        <p class="eyebrow">How it started</p>
+        <h2>Somebody planted an idea in us. We&rsquo;re passing it on.</h2>
+        <p>It was a business trip to Bali that felt more like play, until a wipeout cost Milo four days and nearly 35 pounds. That is how we met the food that changed our lives.</p>
+        <p>In the United States, green banana flour is still barely known. In much of the world it is an everyday superfood &mdash; stirred into water, or milled fine and worked into a dough as a base for bread. In Bali we found a caf&eacute; that had built an entire menu on it: sourdough, pizza, pancakes, waffles, all from one flour, and none of it tasting like a compromise.</p>
+        <p>For Milo, it was the first food that stayed down, and it carried him through his recovery. For Erol, it was the first big meal in years that didn&rsquo;t leave him paying for it afterward. We ate there for breakfast, lunch and dinner.</p>
+        <p>We did not come home with recipes. We came home knowing it was possible, and then spent a long time working out how &mdash; badly at first. Everything we sell is our own, developed and baked fresh here in Santa Barbara. What that caf&eacute; gave us was the proof, and we would not have started without it.</p>
+        <p>Then there was the other half of it: coming back to a country where the default loaf carries thirty ingredients and a marketing budget, and not being able to unsee that. No gap in the market, no business plan. An idea that got in and would not come out.</p>
+        <blockquote>Sorry. Now it&rsquo;s in you too.</blockquote>
+      </div>
+      <div class="origin-photo">
+        <img src="images/origin-grower.jpg" alt="A grower in Indonesia beside a freshly cut stem of green bananas">
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="origin-strip">
+        <figure class="origin-shot">
+          <img src="images/origin-market.jpg" alt="A fruit market stall in Bali stacked with green bananas">
+          <figcaption>Where it starts &mdash; a fruit market in Bali, green bananas everywhere.</figcaption>
+        </figure>
+        <figure class="origin-shot">
+          <img src="images/origin-harvest.jpg" alt="Crates of freshly cut green bananas being loaded">
+          <figcaption>Picked green, before the starch turns to sugar. That timing is the entire point.</figcaption>
+        </figure>
+        <figure class="origin-shot">
+          <img src="images/origin-drying.jpg" alt="Sliced green banana drying on racks before milling into flour">
+          <figcaption>Sliced and dried on racks, then milled. No additives, nothing taken out.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE STAND FOR ============ -->
+  <section class="stands">
+    <div class="wrap">
+      <p class="eyebrow">What we stand for</p>
+      <h2>Food that&rsquo;s worth the trouble.</h2>
+      <div class="stands-grid">
+        <div class="stand">
+          <h3>Function over marketing</h3>
+          <p>Green banana flour is genuinely rich in resistant starch &mdash; and we say plainly that baking reduces it, because it does. We publish the figures for the flour, the caveat for the loaf, and the source for both. Nobody has to take our word for anything.</p>
+        </div>
+        <div class="stand">
+          <h3>Less waste</h3>
+          <p>Green bananas are picked before they ripen, which turns fruit that often never reaches a shelf into flour. Reducing food waste isn&rsquo;t a side note for us &mdash; it&rsquo;s built into the ingredient.</p>
+        </div>
+        <div class="stand">
+          <h3>Local, honestly</h3>
+          <p>The banana isn&rsquo;t from Santa Barbara and we&rsquo;ll never pretend it is. The baking is. We back local farming where it&rsquo;s real, and say plainly where an ingredient travelled from.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="team-cta">
+    <div class="wrap">
+      <h2>Come say hello.</h2>
+      <p>We bake a small batch most mornings and hand it out somewhere around Isla Vista, Goleta and Santa Barbara. Easiest way to meet us is to turn up.</p>
+      <div class="cta-actions">
+        <a href="drop.html" class="btn btn-gold">See today&rsquo;s bake</a>
+        <a href="index.html#signup" class="btn btn-ghost btn-outline-cream">Join the waitlist</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <img class="logo-mark logo-mark--footer" src="images/logo.png" alt="The Green Banana logo">
+      <span class="logo-text">The Green Banana</span>
+      <p class="footer-tag">Green banana flour bread &amp; premixes, baked local to the South Coast.</p>
+    </div>
+    <div class="footer-contact">
+      <p>Questions? <a href="mailto:milo@balibread.com">milo@balibread.com</a></p>
+      <p class="footer-note">Isla Vista &middot; Goleta &middot; Santa Barbara</p>
+    </div>
+  </div>
+  <p class="footer-fine">&copy; <span id="year"></span> Green Banana LLC &middot; Santa Barbara County, California. Made in a home kitchen operation that is not subject to routine government food safety inspection.</p>
+</footer>
+
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+<script src="js/app.js"></script>
+</body>
+</html>

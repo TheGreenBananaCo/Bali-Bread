@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Green Banana — Bali Bread &amp; Green Banana Flour, Delivered in IV, Goleta &amp; Santa Barbara</title>
-<meta name="description" content="Weekly and biweekly subscriptions for Bali Bread — our green banana flour loaf — plus flour and baking premixes. Local to Isla Vista, Goleta, and Santa Barbara.">
+<meta name="description" content="Bali Bread — a wheat-free sandwich loaf built on green banana flour — plus flour and baking premixes. Baked Sundays and Wednesdays in Isla Vista, Goleta and Santa Barbara.">
 <meta name="theme-color" content="#265930">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png">
@@ -18,13 +18,12 @@
 
 <!-- ============ BRAND NOTES ============ -->
 <!--
-  Brand: The Green Banana. First product: Bali Bread (our green banana
-  flour loaf). Logo/colors are final (pulled from images/logo.png).
-  Fonts and remaining copy can still be adjusted — see README.md.
+  Brand: The Green Banana. Bread brand: Bali Bread.
+  Green Banana LLC, Santa Barbara County, California.
 -->
 
 <div class="announce-bar">
-  Now taking signups in Isla Vista, Goleta &amp; Santa Barbara &mdash; local delivery starts soon
+  Your Daily Bread on Demand: Local Deliveries and Drops Sundays &amp; Wednesdays &mdash; at the Isla Vista Food Co-op &mdash; join the list!
 </div>
 
 <header class="site-header">
@@ -34,9 +33,12 @@
       <span class="logo-text">The Green Banana</span>
     </a>
     <nav class="nav" aria-label="Primary">
+      <a href="drop.html">Today&rsquo;s Bake</a>
+      <a href="#nutrition">The Science</a>
       <a href="#products">Products</a>
+      <a href="merch.html">Merch</a>
+      <a href="team.html">Our Team</a>
       <a href="#plans">Subscriptions</a>
-      <a href="#delivery">Delivery Area</a>
       <a href="#faq">FAQ</a>
       <a href="#signup" class="nav-cta">Join the Waitlist</a>
     </nav>
@@ -53,8 +55,12 @@
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">Isla Vista &bull; Goleta &bull; Santa Barbara</p>
-        <h1>Meet <span class="accent">Bali Bread</span> — real bread baked from green banana flour, on your doorstep every week.</h1>
-        <p class="hero-sub">Bali Bread is our flagship loaf, plus green banana flour on its own and just-add-water premixes: naturally gluten-friendly, higher in resistant starch, and baked fresh in small batches around the South Coast.</p>
+        <h1>Meet <span class="accent">Bali Bread</span> &mdash; real bread, made from green bananas.</h1>
+        <p class="hero-sub">Picked green, dried, and milled before the starch has a chance to turn to sugar. We bake it into a wheat-free loaf daily for delivery and have dedicated drops twice a week, and we sell the flour and the premixes so you can explore the wonderful versatility of this flour yourself.</p>
+        <div class="hero-stat">
+          <span class="hero-stat-num">2&times;</span>
+          <span class="hero-stat-label">the resistant starch of a regular loaf &mdash; <a href="#nutrition">see the numbers</a></span>
+        </div>
         <div class="hero-actions">
           <a href="#plans" class="btn btn-primary">See Subscription Plans</a>
           <a href="#signup" class="btn btn-ghost">Join the Waitlist</a>
@@ -62,7 +68,21 @@
         <p class="hero-note">No app download required — add this site to your phone's home screen and it works like one.</p>
       </div>
       <div class="hero-art">
-        <div class="hero-blob"></div>
+        <div class="hero-bloom" aria-hidden="true">
+          <svg viewBox="0 0 360 400">
+            <path fill="var(--green-mid)" opacity=".9" transform="translate(40,398) rotate(-16) scale(.95)" d="M0,0 C18,-9 30,-27 30,-54 C30,-54 80,-80 85,-168 C89,-230 53,-274 0,-292 C-53,-274 -89,-230 -85,-168 C-80,-80 -30,-54 -30,-54 C-30,-27 -18,-9 0,0 Z"/>
+            <path fill="var(--green-deep)" transform="translate(322,404) rotate(18) scale(.88)" d="M0,0 C18,-9 30,-27 30,-54 C30,-54 80,-80 85,-168 C89,-230 53,-274 0,-292 C-53,-274 -89,-230 -85,-168 C-80,-80 -30,-54 -30,-54 C-30,-27 -18,-9 0,0 Z"/>
+            <path d="M182,376 C172,296 198,236 176,166 C168,136 176,114 184,98" fill="none" stroke="var(--green-deep)" stroke-width="7" stroke-linecap="round"/>
+            <g transform="translate(184,100) rotate(-8)">
+              <path fill="var(--crust)" d="M-13,8 C-20,-26 -10,-68 0,-96 C10,-68 20,-26 13,8 C8,17 -8,17 -13,8 Z"/>
+              <path fill="var(--crust)" transform="rotate(-46) scale(.9)" d="M0,0 C6,-27 9,-59 3,-91 C1,-100 -1,-100 -3,-91 C-9,-59 -6,-27 0,0 Z"/>
+              <path fill="var(--flame)" transform="rotate(-23) scale(1.04)" d="M0,0 C6,-27 9,-59 3,-91 C1,-100 -1,-100 -3,-91 C-9,-59 -6,-27 0,0 Z"/>
+              <path fill="var(--gold)" transform="rotate(-1) scale(1.18)" d="M0,0 C6,-27 9,-59 3,-91 C1,-100 -1,-100 -3,-91 C-9,-59 -6,-27 0,0 Z"/>
+              <path fill="var(--flame)" transform="rotate(20) scale(1.0)" d="M0,0 C6,-27 9,-59 3,-91 C1,-100 -1,-100 -3,-91 C-9,-59 -6,-27 0,0 Z"/>
+              <path fill="var(--crust)" transform="rotate(43) scale(.86)" d="M0,0 C6,-27 9,-59 3,-91 C1,-100 -1,-100 -3,-91 C-9,-59 -6,-27 0,0 Z"/>
+            </g>
+          </svg>
+        </div>
         <img class="hero-photo" src="images/hero-bread.jpg" alt="Fresh-baked Bali Bread loaves, flour-dusted, cooling on a rack">
       </div>
     </div>
@@ -72,8 +92,8 @@
   <section class="benefits">
     <div class="wrap benefits-inner">
       <div class="benefit"><span class="benefit-icon" aria-hidden="true">🌱</span>Real green banana flour</div>
-      <div class="benefit"><span class="benefit-icon" aria-hidden="true">📍</span>Baked local, never shipped frozen</div>
-      <div class="benefit"><span class="benefit-icon" aria-hidden="true">🔁</span>Pause or cancel anytime</div>
+      <div class="benefit"><span class="benefit-icon" aria-hidden="true">📍</span>Baked local, no weird preservatives or fillers</div>
+      <div class="benefit"><span class="benefit-icon" aria-hidden="true">🗓️</span>Fresh Sundays &amp; Wednesdays</div>
       <div class="benefit"><span class="benefit-icon" aria-hidden="true">🚲</span>IV &middot; Goleta &middot; Santa Barbara</div>
     </div>
   </section>
@@ -86,13 +106,50 @@
       </div>
       <div class="story-copy">
         <h2>Why green banana flour?</h2>
-        <p>Green (unripe) bananas are dried and milled before they ripen, which locks in resistant starch instead of letting it convert to sugar. The result is a mild, subtly sweet flour that bakes up light, is naturally gluten-friendly, and is easier on blood sugar than most refined flours — without tasting "healthy" for the sake of it.</p>
-        <p>We bake everything in small batches and deliver it fresh, on a schedule that fits actual college and family life: no big freezer stockpiles, no minimum orders you don't need, just bread that shows up when you expect it.</p>
+        <p>A banana is mostly starch before it ripens and mostly sugar after. Harvest it green, dry it, and mill it, and you catch it on the starch side of that line. A large share of what you get is <em>resistant starch</em> &mdash; starch your small intestine cannot break down, so it reaches the colon intact and feeds the bacteria living there instead of feeding you. The flour itself is pale, fine, and faintly sweet until baked. It is not a wheat substitute and it does not pretend to be one.</p>
+        <p>We first came to green banana flour in Bali, Indonesia, after Milo was laid low by protozoa, picked up from unwashed fruit or a bad hold-down surfing at Canggu. Our friends there prescribed three things: Pocari Sweat, activated charcoal and green banana flour. We had never heard of it, though much of the world treats it as an everyday superfood. We learned to bake with it, and after half a decade of baking for friends and family we have a recipe list that could run a whole menu on this one flour &mdash; sourdough, pizza, buns, pancakes, waffles and more.</p>
+        <ul class="benefit-points">
+          <li><strong>Feeds your gut bacteria.</strong> Resistant starch passes through the small intestine undigested, and in the colon your gut bacteria ferment it into short-chain fatty acids, which help nourish the cells lining the gut.</li>
+          <li><strong>Starch that digests slowly.</strong> Resistant starch is not broken down into sugar in the small intestine the way ordinary starch is.</li>
+          <li><strong>Simple ingredients, minimally processed.</strong> Nothing fortified, nothing artificial.</li>
+        </ul>
         <blockquote class="pull-quote">
-          "We wanted bread you'd actually want to eat, not health food that apologizes for itself."
+          "We wanted bread you'd actually want to eat, not another poison disguised at the store."
           <span class="pull-quote-attr">— Milo, founder</span>
         </blockquote>
       </div>
+    </div>
+  </section>
+
+  <!-- NUTRITION / SCIENCE -->
+  <section id="nutrition" class="nutrition">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--center">The Science</p>
+      <h2 class="section-title">What&rsquo;s actually in the flour</h2>
+      <p class="section-sub">These are the numbers for green banana flour itself, measured per 100g of flour. We&rsquo;ve put them here rather than on the bread, because that&rsquo;s where they honestly belong &mdash; see the note underneath.</p>
+      <div class="nutrition-grid">
+        <div class="nutrition-card">
+          <span class="nutrition-stat">40g</span>
+          <h3>Resistant starch / 100g of flour</h3>
+          <p>A fermentable fiber, and by far the highest concentration in anything we sell. Heat is what destroys it, so the flour is where it survives: stir it into a smoothie or overnight oats and it arrives the way it left the mill.</p>
+        </div>
+        <div class="nutrition-card">
+          <span class="nutrition-stat">2&times;</span>
+          <h3>Resistant starch, baked vs. ordinary bread</h3>
+          <p>A 2025 trial on banana-flour bread measured 2.56% resistant starch against 1.32% in a conventional control loaf. Roughly double &mdash; and still a modest number in absolute terms, which is exactly why we tell you to buy the flour if resistant starch is what you are after.</p>
+        </div>
+        <div class="nutrition-card">
+          <span class="nutrition-stat">1,491mg</span>
+          <h3>Potassium / 100g of flour</h3>
+          <p>Plus magnesium, phosphorus, and antioxidant polyphenols — naturally, with no fortification.</p>
+        </div>
+        <div class="nutrition-card">
+          <span class="nutrition-stat">4</span>
+          <h3>Flours in the loaf</h3>
+          <p>Rice, green banana, tapioca and corn. That is the whole blend, and there is no wheat, rye or barley in it. We do not print the phrase &ldquo;gluten-free&rdquo; &mdash; in the US that is a regulated term meaning every batch tests under 20 parts per million. We bake it fresh here in Santa Barbara. If you have celiac disease, that distinction is the one that matters, and you should hear it from us.</p>
+        </div>
+      </div>
+      <p class="nutrition-source"><strong>An honest note about baking.</strong> Resistant starch in green bananas is the RS2 type, and RS2 is not heat-stable &mdash; a good deal of it converts during baking, and some re-forms as the loaf cools. So the numbers above describe the flour, not a slice of bread. If resistant starch is what you&rsquo;re after, buy the flour and use it unbaked. If you want bread that happens to be made of something better than refined wheat, buy the loaf. We&rsquo;d rather tell you that than let you assume.<br><br>Sources: CIQUAL/CNEVA (1993); Bezerra et al., 2013; Journal of Nutritional Science, 2022; Plants 14(2):207, 2025.</p>
     </div>
   </section>
 
@@ -100,15 +157,15 @@
   <section id="products" class="products">
     <div class="wrap">
       <h2 class="section-title">What we bake</h2>
-      <p class="section-sub">Starting with flour, loaves, and premixes. Pizza dough and other baked bases are coming later this year.</p>
+      <p class="section-sub">Flour, loaves, and premixes to start with. Pizza and the other bases follow.</p>
 
       <div class="product-grid">
         <article class="product-card">
           <div class="product-photo"><img src="images/product-flour.jpg" alt="Freshly harvested green bananas, cut for milling into flour"></div>
           <div class="product-card-body">
             <h3>Green Banana Flour</h3>
-            <p>Our base ingredient, sold on its own for home bakers. 1 lb and 2 lb bags. Great 1:1 swap in pancakes, tortillas, and quick breads.</p>
-            <span class="tag">Pantry staple</span>
+            <p>Our base ingredient, sold on its own. 1 lb and 2 lb bags. It drinks far more liquid than wheat does, so swap it in for about 70&ndash;75% of the flour a recipe calls for rather than all of it, and add liquid until the batter looks right.</p>
+            <span class="tag tag-soon">Pricing at launch</span>
           </div>
         </article>
 
@@ -116,17 +173,17 @@
           <div class="product-photo"><img src="images/product-bali-bread.jpg" alt="Bali Bread loaves, sliced, showing the crumb"></div>
           <div class="product-card-body">
             <h3>Bali Bread</h3>
-            <p>Our flagship loaf — a rustic, sandwich-friendly bread made with green banana flour, baked fresh every week.</p>
-            <span class="tag">Baked fresh weekly</span>
+            <p>Our flagship loaf. Rustic, properly sandwich-shaped, and baked on Sunday and Wednesday mornings so nothing we hand you is more than three days old.</p>
+            <span class="tag">$14 at the door &middot; $10.50 on subscription</span>
           </div>
         </article>
 
         <article class="product-card">
-          <div class="product-photo"><img src="images/product-premixes.jpg" alt="Waffles made from our green banana flour premix"></div>
+          <div class="product-photo product-photo--pouch"><img src="images/product-premix-bag.jpg" alt="The Green Banana pancake and waffle mix pouch"></div>
           <div class="product-card-body">
             <h3>Baking Premixes</h3>
-            <p>Just add water, eggs, or oil. Pancake &amp; waffle mix and a quick-bread mix — built for small dorm and apartment kitchens.</p>
-            <span class="tag">Dorm-kitchen friendly</span>
+            <p>You add water, one egg, and a spoonful of oil &mdash; that is the whole method. Pancake &amp; waffle mix and a quick-bread mix, portioned for one bowl and a small kitchen.</p>
+            <span class="tag tag-soon">Pricing at launch</span>
           </div>
         </article>
 
@@ -134,7 +191,7 @@
           <div class="product-photo"><img src="images/product-pizza-soon.jpg" alt="Green banana flour pizza crust topped with arugula and squash"></div>
           <div class="product-card-body">
             <h3>Pizza Dough &amp; More</h3>
-            <p>Green banana flour pizza dough and other baked bases are next on the menu. Join the waitlist to hear first.</p>
+            <p>Green banana flour pizza dough and other baked goods are next on the menu. Join the waitlist to hear first.</p>
             <span class="tag tag-soon">Coming later</span>
           </div>
         </article>
@@ -142,66 +199,58 @@
     </div>
   </section>
 
+  <!-- MORE IS COMING -->
+  <section class="more-soon">
+    <div class="wrap more-soon-inner">
+      <p class="eyebrow eyebrow--center">What's Next</p>
+      <h2 class="section-title">Bali Bread is just the start.</h2>
+      <p class="section-sub">One flour turns out to do a great deal more than bread. We are working our way through the list, one bake at a time.</p>
+      <div class="soon-chips">
+        <span class="soon-chip">🍕 Pizza dough</span>
+        <span class="soon-chip">🥐 New breads</span>
+        <span class="soon-chip">🍪 Sweet bakes</span>
+      </div>
+      <a href="#signup" class="btn btn-ghost">Be first to know</a>
+    </div>
+  </section>
+
   <!-- PLANS -->
   <section id="plans" class="plans">
     <div class="wrap">
       <h2 class="section-title">Subscription plans</h2>
-      <p class="section-sub">Pause, skip, or cancel anytime. Prices are placeholders — adjust them to your real costs before launch.</p>
+      <p class="section-sub">Two bakes a week, Sunday and Wednesday. Pause, skip a week, or cancel whenever you like &mdash; there is no contract and nothing you have to phone anybody to stop.</p>
 
-      <div class="plan-grid">
+      <div class="plan-grid plan-grid--two">
 
         <article class="plan-card" data-plan="student">
           <h3>Study Pack</h3>
-          <p class="plan-audience">Built for IV students</p>
-          <p class="plan-price">$14<span>/ 2 weeks</span></p>
+          <p class="plan-audience">One person, one loaf, every week</p>
+          <p class="plan-price">$12<span>/ week</span></p>
           <ul class="plan-features">
-            <li>1 Bali Bread loaf, every other week</li>
-            <li>1 premix packet included</li>
-            <li>Pickup on campus route or IV pickup point</li>
+            <li>1 Bali Bread loaf every Sunday</li>
+            <li>Isla Vista pickup point, or delivery on the route</li>
+            <li>Skip any week you&rsquo;re away &mdash; finals, breaks, a trip home</li>
+            <li>Add a Wednesday loaf any week for $10</li>
           </ul>
           <button class="btn btn-primary plan-btn" data-plan-name="Study Pack">Choose Study Pack</button>
         </article>
 
-        <article class="plan-card plan-card--popular" data-plan="weekly">
-          <div class="plan-ribbon">Most popular</div>
-          <h3>Weekly Loaf</h3>
-          <p class="plan-audience">Great for individuals &amp; couples</p>
-          <p class="plan-price">$11<span>/ week</span></p>
+        <article class="plan-card plan-card--popular" data-plan="family">
+          <div class="plan-ribbon">Best value</div>
+          <h3>Family Pack</h3>
+          <p class="plan-audience">A household, or a flat that shares food</p>
+          <p class="plan-price">$21<span>/ week</span></p>
           <ul class="plan-features">
-            <li>1 fresh Bali Bread loaf every week</li>
-            <li>Add flour or premixes anytime</li>
-            <li>Delivery or pickup</li>
+            <li>2 loaves a week &mdash; one Sunday, one Wednesday</li>
+            <li>Works out at $10.50 a loaf, against $14 at the door</li>
+            <li>First pick of delivery windows</li>
+            <li>Extra loaves $10 each, added any week</li>
           </ul>
-          <button class="btn btn-primary plan-btn" data-plan-name="Weekly Loaf">Choose Weekly Loaf</button>
-        </article>
-
-        <article class="plan-card" data-plan="family">
-          <h3>Family Box</h3>
-          <p class="plan-audience">For households &amp; roommates</p>
-          <p class="plan-price">$32<span>/ week</span></p>
-          <ul class="plan-features">
-            <li>2 Bali Bread loaves + 1 flour bag weekly</li>
-            <li>Priority delivery windows</li>
-            <li>Free premix sample each month</li>
-          </ul>
-          <button class="btn btn-primary plan-btn" data-plan-name="Family Box">Choose Family Box</button>
-        </article>
-
-        <article class="plan-card" data-plan="pantry">
-          <div class="plan-ribbon plan-ribbon--alt">Best value</div>
-          <h3>Pantry Refill</h3>
-          <p class="plan-audience">Flour &amp; premix only, no bread</p>
-          <p class="plan-price">$19<span>/ month</span></p>
-          <ul class="plan-features">
-            <li>2 lb flour + 2 premix packets</li>
-            <li>Monthly delivery or pickup</li>
-            <li>Best value per pound</li>
-          </ul>
-          <button class="btn btn-primary plan-btn" data-plan-name="Pantry Refill">Choose Pantry Refill</button>
+          <button class="btn btn-primary plan-btn" data-plan-name="Family Pack">Choose Family Pack</button>
         </article>
 
       </div>
-      <p class="plan-founding">Be one of the first members in Isla Vista, Goleta &amp; Santa Barbara.</p>
+      <p class="plan-founding">Both plans are bread only. Flour and premix pricing is still being set &mdash; join the list and you&rsquo;ll hear the numbers before anyone else.</p>
       <p class="plan-fineprint" id="checkoutNote"></p>
     </div>
   </section>
@@ -218,15 +267,12 @@
           <button type="submit" class="btn btn-primary">Check</button>
         </form>
         <p id="zipResult" class="zip-result" role="status"></p>
-        <p class="delivery-note">Prefer to skip delivery? Pickup is available weekly — details go here once your pickup schedule/location is set (e.g. a farmers market stand or IV Co-op window).</p>
+        <p class="delivery-note">Prefer to pick up? Isla Vista pickup is at the Isla Vista Food Co-op on every bake day &mdash; free, no order minimum. You get the exact window with your confirmation.</p>
       </div>
       <div class="delivery-zones" aria-hidden="true">
-        <h3>Launch zones</h3>
-        <ul>
-          <li>Isla Vista <span>93117</span></li>
-          <li>Goleta <span>93111 &middot; 93117</span></li>
-          <li>Santa Barbara <span>93101 &middot; 93103 &middot; 93105 &middot; 93108 &middot; 93109 &middot; 93110</span></li>
-        </ul>
+        <h3>Where we are</h3>
+        <p class="delivery-zones-copy">Santa Barbara County. Drops start at the <strong>Isla Vista Food Co-op</strong> &mdash; more areas coming as we grow.</p>
+        <p class="delivery-zones-copy delivery-zones-call">Outside the zone? <a href="#signup">Get in touch</a> and we&rsquo;ll figure out delivery.</p>
       </div>
     </div>
   </section>
@@ -239,7 +285,7 @@
         <div class="how-step">
           <div class="how-num">1</div>
           <h3>Pick a plan</h3>
-          <p>Choose Study Pack, Weekly Loaf, Family Box, or Pantry Refill based on how much bread you actually go through.</p>
+          <p>One loaf a week, or two. Add extra loaves to either plan whenever you need them.</p>
         </div>
         <div class="how-step">
           <div class="how-num">2</div>
@@ -249,7 +295,7 @@
         <div class="how-step">
           <div class="how-num">3</div>
           <h3>We bake &amp; bring it</h3>
-          <p>Fresh bread and mixes arrive on your schedule. Pause before finals, skip a week, or cancel anytime — no contracts.</p>
+          <p>We bake Sunday and Wednesday mornings and it reaches you the same day. Pause it over finals, skip a week you are away, cancel whenever &mdash; no contracts.</p>
         </div>
       </div>
     </div>
@@ -261,20 +307,32 @@
       <h2 class="section-title">Frequently asked questions</h2>
       <div class="faq-list">
         <details>
-          <summary>Is green banana flour gluten-free?</summary>
-          <p>Green banana flour itself is naturally gluten-free. Some of our loaves are blended with wheat flour for texture — check each product's label. A fully gluten-free loaf option can be added here once you confirm your recipes and kitchen cross-contamination setup.</p>
+          <summary>Is there gluten in it?</summary>
+          <p>No wheat, no rye, no barley, in anything we make. The flour blend is rice, green banana, tapioca and corn. What we deliberately do not print is the phrase &ldquo;gluten-free&rdquo; &mdash; in the United States that phrase is regulated, and it means every batch has been laboratory-tested below 20 parts per million. We bake it fresh here in Santa Barbara, and we do not lab-test batches, so the phrase is not ours to use. If you have celiac disease, read this as bread made without gluten grains, not as certified gluten-free bread. That difference is small on paper and large in a hospital.</p>
+        </details>
+        <details>
+          <summary>What about other allergens?</summary>
+          <p>Our pancake &amp; waffle mix and quick-bread premix call for you to add one egg at home &mdash; the bag itself has no egg in it. Everything we sell is baked fresh here in Santa Barbara under California&rsquo;s Cottage Food Operation law, not in a certified allergen-controlled facility, so we can&rsquo;t guarantee any product is free of cross-contact with other allergens. If you have a serious allergy, message us before you order and we&rsquo;ll tell you exactly what&rsquo;s been in the kitchen.</p>
         </details>
         <details>
           <summary>Can I pause or cancel my subscription?</summary>
-          <p>Yes — pause, skip a delivery, change your plan, or cancel anytime from your confirmation email or by contacting us directly. (Self-service plan management can be added once real payments are connected — see the launch guide.)</p>
+          <p>Yes. Pause, skip a delivery, switch plans or cancel from the link in your confirmation email, or just reply to it and we will do it for you.</p>
         </details>
         <details>
           <summary>Do you deliver outside Isla Vista, Goleta, and Santa Barbara?</summary>
           <p>Not yet. We're starting hyper-local so every loaf is fresh. Join the waitlist and tell us your area — expansion plans will follow demand.</p>
         </details>
         <details>
+          <summary>Why only two bakes a week?</summary>
+          <p>Gluten is the protein network that gives ordinary bread its structure, and it is part of what keeps a supermarket loaf soft for a week. Without it, the starch in the crumb recrystallises quickly &mdash; bakers call it retrogradation &mdash; and the loaf firms up inside three or four days. Baking Sunday and Wednesday means nothing we hand you is older than that. Day three is still very good toast.</p>
+        </details>
+        <details>
+          <summary>How should I store it?</summary>
+          <p>On the counter, in its bag, for two days. After that, slice the loaf and freeze it, then toast the slices from frozen. Do not put it in the fridge. Just above freezing is the temperature range where starch recrystallises fastest, so a refrigerator is the quickest way to stale bread there is.</p>
+        </details>
+        <details>
           <summary>How do I pay?</summary>
-          <p>We're finalizing online payments. For now, join the waitlist and we'll follow up with how to start your subscription and pay for your first box.</p>
+          <p>Card payments go live with the first bake. Join the list now and we will send you the link before your first delivery &mdash; nothing is charged until bread is actually on its way to you.</p>
         </details>
       </div>
     </div>
@@ -299,6 +357,7 @@
         <div class="form-row">
           <label for="phoneInput">Phone (optional)</label>
           <input type="tel" id="phoneInput" name="phone">
+          <p style="font-size:.8rem;line-height:1.4;color:var(--ink-soft);margin:.35rem 0 0;">By adding your phone number, you agree to receive text messages from The Green Banana about your orders and bake days. Message and data rates may apply. Reply STOP to opt out at any time.</p>
         </div>
         <div class="form-row">
           <label for="signupZip">Zip code</label>
@@ -315,20 +374,19 @@
         <div class="form-row">
           <label for="planSelect">Plan interested in</label>
           <select id="planSelect" name="plan">
-            <option value="Study Pack">Study Pack ($14 / 2 weeks)</option>
-            <option value="Weekly Loaf">Weekly Loaf ($11 / week)</option>
-            <option value="Family Box">Family Box ($32 / week)</option>
-            <option value="Pantry Refill">Pantry Refill ($19 / month)</option>
+            <option value="Study Pack">Study Pack &mdash; 1 loaf, $12 / week</option>
+            <option value="Family Pack">Family Pack &mdash; 2 loaves, $21 / week</option>
+            <option value="Flour or premix only">Flour or premix only</option>
             <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
         <div class="form-row form-row--full">
-          <label for="notesInput">Anything else? (allergies, questions, etc.)</label>
+          <label for="notesInput">Anything else? Allergies, extra loaves, questions</label>
           <textarea id="notesInput" name="notes" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary form-submit">Join the Waitlist</button>
         <p id="signupStatus" class="signup-status" role="status"></p>
-        <p class="signup-fineprint">This currently sends your info by email to The Green Banana team — no account or payment needed to join the waitlist.</p>
+        <p class="signup-fineprint">This sends your details to us by email. No account, no card, nothing charged to join the list. If you give us your number, you&rsquo;re opting in to texts from us about your order or spot on the list &mdash; msg &amp; data rates may apply, reply STOP anytime to opt out.</p>
       </form>
     </div>
   </section>
@@ -343,11 +401,11 @@
       <p class="footer-tag">Green banana flour bread &amp; premixes, baked local to the South Coast.</p>
     </div>
     <div class="footer-contact">
-      <p>Questions? <a href="mailto:milo@ftatlantic.com">milo@ftatlantic.com</a></p>
+      <p>Questions? <a href="mailto:milo@balibread.com">milo@balibread.com</a></p>
       <p class="footer-note">Isla Vista &middot; Goleta &middot; Santa Barbara</p>
     </div>
   </div>
-  <p class="footer-fine">&copy; <span id="year"></span> The Green Banana. Site built for launch — see README.md to edit or redeploy.</p>
+  <p class="footer-fine">&copy; <span id="year"></span> Green Banana LLC &middot; Santa Barbara County, California. Made in a home kitchen operation that is not subject to routine government food safety inspection.</p>
 </footer>
 
 <script src="js/app.js"></script>

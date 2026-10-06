@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today's Bake — The Green Banana | Bali Bread in Santa Barbara</title>
+<meta name="description" content="A few loaves of Bali Bread, baked fresh this morning. Reserve one by text, pick it up from the green Subaru. Isla Vista, Goleta &amp; Santa Barbara.">
+<meta name="theme-color" content="#265930">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ===== Drop page — layered on top of the shared brand stylesheet ===== */
+
+  .drop-hero{
+    background: var(--green-deep);
+    color: var(--cream);
+    padding: 44px 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .drop-hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(circle at 82% 12%, rgba(245,184,60,0.18), transparent 55%);
+    pointer-events:none;
+  }
+  .drop-hero .wrap{ position:relative; z-index:1; }
+
+  .drop-grid{
+    display:grid; grid-template-columns: minmax(0,1fr) minmax(0,0.82fr);
+    gap: 52px; align-items:center;
+  }
+  .drop-photo{
+    position:relative; border-radius: var(--radius); overflow:hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    aspect-ratio: 4 / 5;
+  }
+  .drop-photo img{ width:100%; height:100%; object-fit:cover; }
+  .drop-photo-tag{
+    position:absolute; left:0; bottom:0; right:0;
+    background: linear-gradient(to top, rgba(20,38,24,0.92), rgba(20,38,24,0));
+    padding: 42px 22px 20px;
+    font-family: var(--font-head); font-weight:700; color: var(--cream);
+    font-size:.94rem;
+  }
+  .drop-photo-tag span{
+    display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+    color: var(--gold); margin-bottom:4px; font-weight:800;
+  }
+  @media (max-width: 900px){
+    .drop-grid{ grid-template-columns:1fr; gap:34px; }
+    .drop-photo{ aspect-ratio: 16 / 10; max-height: 300px; }
+  }
+
+  .drop-date{
+    font-family: var(--font-head);
+    font-weight:700; font-size:.82rem; letter-spacing:.18em; text-transform:uppercase;
+    color: var(--gold); margin-bottom:10px;
+  }
+
+  .drop-status{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family: var(--font-head); font-weight:800;
+    font-size:.78rem; letter-spacing:.13em; text-transform:uppercase;
+    padding: 7px 16px; border-radius:999px; margin-bottom:20px;
+  }
+  .drop-status .dot{ width:9px; height:9px; border-radius:50%; display:block; }
+  .drop-status.is-live{ background: var(--gold); color:#2b2410; }
+  .drop-status.is-live .dot{ background:#2b2410; animation: pulse 1.6s ease-in-out infinite; }
+  .drop-status.is-soon{ background: rgba(247,240,222,0.16); color: var(--cream); border:1px solid rgba(247,240,222,0.35); }
+  .drop-status.is-soon .dot{ background: var(--cream); }
+  .drop-status.is-out{ background: rgba(247,240,222,0.1); color: rgba(247,240,222,0.72); border:1px solid rgba(247,240,222,0.22); }
+  .drop-status.is-out .dot{ background: rgba(247,240,222,0.5); }
+  @keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.35; transform:scale(.82);} }
+
+  .drop-hero h1{
+    color: var(--cream);
+    font-size: clamp(2.3rem, 6vw, 3.6rem);
+    max-width: 15ch;
+    margin-bottom:.35em;
+  }
+  .drop-hero h1 .accent{ color: var(--gold); }
+  .drop-lede{
+    color: rgba(247,240,222,0.82);
+    font-size:1.06rem; max-width: 46ch; margin-bottom:30px;
+  }
+
+  /* --- the counter --- */
+  .counter{
+    background: rgba(247,240,222,0.07);
+    border:1px solid rgba(247,240,222,0.22);
+    border-radius: var(--radius);
+    padding: 24px 26px;
+    max-width: 460px;
+    margin-bottom: 26px;
+  }
+  .counter-top{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  .counter-num{
+    font-family: var(--font-head); font-weight:900;
+    font-size: clamp(2.8rem, 9vw, 4rem); line-height:1;
+    color: var(--gold); letter-spacing:-0.02em;
+  }
+  .counter-label{
+    font-family: var(--font-head); font-weight:700; font-size:1rem;
+    color: var(--cream);
+  }
+  .counter-of{ color: rgba(247,240,222,0.6); font-size:.9rem; margin-left:auto; }
+  .bar{
+    height: 10px; border-radius:999px;
+    background: rgba(247,240,222,0.16);
+    overflow:hidden;
+  }
+  .bar-fill{
+    height:100%; border-radius:999px;
+    background: linear-gradient(90deg, var(--gold), #ffd67a);
+    width:0%; transition: width .6s cubic-bezier(.2,.7,.3,1);
+  }
+  .counter-note{
+    font-size:.82rem; color: rgba(247,240,222,0.6); margin: 12px 0 0;
+  }
+
+  /* --- the facts row --- */
+  .facts{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:1px;
+    background: rgba(247,240,222,0.18);
+    border:1px solid rgba(247,240,222,0.18);
+    border-radius: var(--radius); overflow:hidden;
+    max-width:460px; margin-bottom:28px;
+  }
+  .fact{ background: var(--green-deep); padding:16px 18px; }
+  .fact-k{
+    font-family: var(--font-head); font-weight:700; font-size:.68rem;
+    letter-spacing:.13em; text-transform:uppercase;
+    color: var(--gold); margin-bottom:5px;
+  }
+  .fact-v{ font-size:.94rem; color: var(--cream); font-weight:500; line-height:1.35; }
+  .fact-v a{ color: var(--cream); text-decoration:underline; text-underline-offset:3px; }
+
+  .drop-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .btn-gold{
+    background: var(--gold); color:#2b2410;
+    box-shadow: 0 6px 18px rgba(245,184,60,0.28);
+    font-size:1.04rem; padding:17px 34px;
+  }
+  .btn-gold:hover{ background:#ffc95c; transform:translateY(-2px); }
+  .btn-outline-cream{
+    background:transparent; border-color: rgba(247,240,222,0.45); color: var(--cream);
+  }
+  .btn-outline-cream:hover{ background: rgba(247,240,222,0.1); }
+  .btn[disabled], .btn.is-disabled{
+    opacity:.45; pointer-events:none; box-shadow:none;
+  }
+  .action-note{ font-size:.82rem; color: rgba(247,240,222,0.6); width:100%; margin:2px 0 0; }
+
+  /* --- setup warning (only shows if config not filled in) --- */
+  .setup-warn{
+    background:#fff3cd; border:2px dashed #b8860b; color:#5c4708;
+    border-radius:12px; padding:14px 18px; margin: 0 0 22px;
+    font-size:.9rem; max-width:560px;
+  }
+  .setup-warn strong{ display:block; margin-bottom:4px; font-family:var(--font-head); }
+  .setup-warn code{ background:rgba(0,0,0,.07); padding:1px 5px; border-radius:4px; font-size:.86em; }
+
+  /* --- how it works --- */
+  .how{ padding: 66px 0; background: var(--cream); }
+  .how-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:26px; margin-top:34px; }
+  .how-step{
+    background: var(--white); border-radius: var(--radius);
+    padding: 26px 24px; box-shadow: var(--shadow);
+    border-top: 4px solid var(--gold);
+  }
+  .how-num{
+    font-family: var(--font-head); font-weight:900; font-size:1.6rem;
+    color: var(--gold); line-height:1; margin-bottom:10px;
+  }
+  .how-step h3{ font-size:1.16rem; margin-bottom:.4em; }
+  .how-step p{ font-size:.94rem; color: var(--ink-soft); margin:0; }
+
+  /* --- why strip --- */
+  .why-strip{ padding: 60px 0; background: var(--green-soft); }
+  .why-inner{ display:grid; grid-template-columns: 1.15fr 1fr; gap:44px; align-items:center; }
+  .why-stats{ display:grid; grid-template-columns: repeat(2,1fr); gap:14px; }
+  .why-stat{
+    background: var(--white); border-radius:12px; padding:18px 18px;
+    box-shadow: 0 4px 14px rgba(47,75,60,0.07);
+  }
+  .why-stat .n{
+    font-family: var(--font-head); font-weight:900; font-size:1.5rem;
+    color: var(--green-deep); line-height:1;
+  }
+  .why-stat .l{ font-size:.8rem; color: var(--ink-soft); margin-top:5px; line-height:1.35; }
+
+  /* --- missed it --- */
+  .missed{ padding: 62px 0; background: var(--cream); text-align:center; }
+  .missed-inner{ max-width: 620px; margin:0 auto; }
+
+  .legal-line{
+    background: var(--cream); padding: 0 0 40px;
+    font-size:.78rem; color: var(--ink-soft); text-align:center;
+  }
+  .legal-line p{ max-width: 720px; margin: 0 auto; }
+
+  @media (max-width: 860px){
+    .how-grid{ grid-template-columns:1fr; }
+    .why-inner{ grid-template-columns:1fr; gap:28px; }
+  }
+  @media (max-width: 560px){
+    .facts{ grid-template-columns:1fr; }
+    .drop-actions .btn{ width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==========================================================
+     ⚙️  EDIT THIS EVERY MORNING — nothing else on the page
+     needs to change. Scroll to the DROP block in the script
+     at the bottom of this file. It's about 12 lines.
+     ========================================================== -->
+
+<div class="announce-bar" id="announceBar">
+  Small batch, first come &mdash; reserve by text before it&rsquo;s gone
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="images/logo.png" alt="The Green Banana logo">
+      <span class="logo-text">The Green Banana</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="drop.html">Today&rsquo;s Bake</a>
+      <a href="index.html#nutrition">The Science</a>
+      <a href="index.html#products">Products</a>
+      <a href="merch.html">Merch</a>
+      <a href="team.html">Our Team</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#signup" class="nav-cta">Join the Waitlist</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ THE DROP ============ -->
+  <section class="drop-hero">
+    <div class="wrap">
+
+      <div class="setup-warn" id="setupWarn" hidden>
+        <strong>Setup needed (only you can see this note &mdash; it hides once fixed)</strong>
+        Put your real mobile number in <code>DROP.phone</code> at the bottom of <code>drop.html</code>.
+        Until then the Reserve button won&rsquo;t send anywhere.
+      </div>
+
+      <div class="drop-grid">
+       <div>
+
+      <p class="drop-date" id="dropDate">Today&rsquo;s bake</p>
+
+      <div class="drop-status is-soon" id="dropStatus">
+        <span class="dot"></span><span id="dropStatusText">Loading</span>
+      </div>
+
+      <h1 id="dropHeadline">Fresh out of the oven: <span class="accent">Bali Bread</span></h1>
+      <p class="drop-lede" id="dropLede">
+        We bake a small batch every morning, then park somewhere in town and hand it out.
+        When it&rsquo;s gone, it&rsquo;s gone until tomorrow.
+      </p>
+
+      <div class="counter">
+        <div class="counter-top">
+          <span class="counter-num" id="countLeft">&mdash;</span>
+          <span class="counter-label" id="countLabel">loaves left</span>
+          <span class="counter-of" id="countOf"></span>
+        </div>
+        <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+        <p class="counter-note" id="countNote"></p>
+      </div>
+
+      <div class="facts">
+        <div class="fact">
+          <div class="fact-k">What</div>
+          <div class="fact-v" id="factWhat">&mdash;</div>
+        </div>
+        <div class="fact">
+          <div class="fact-k">Where</div>
+          <div class="fact-v" id="factWhere">&mdash;</div>
+        </div>
+        <div class="fact">
+          <div class="fact-k">When</div>
+          <div class="fact-v" id="factWhen">&mdash;</div>
+        </div>
+      </div>
+
+      <div class="drop-actions">
+        <a class="btn btn-gold" id="reserveBtn" href="#">Reserve a loaf</a>
+        <a class="btn btn-ghost btn-outline-cream" href="index.html#signup">Get tomorrow&rsquo;s alert</a>
+        <p class="action-note" id="actionNote">Opens a text message &mdash; we reply to confirm. No app, no account.</p>
+      </div>
+
+       </div><!-- /left col -->
+
+       <div class="drop-photo">
+         <img src="images/product-bali-bread.jpg" alt="A loaf of Bali Bread, baked from green banana flour">
+         <div class="drop-photo-tag">
+           <span id="photoTagKicker">Baked this morning</span>
+           <span style="font-size:.94rem;letter-spacing:0;text-transform:none;color:var(--cream);font-weight:700;margin:0;" id="photoTagName">Bali Bread</span>
+         </div>
+       </div>
+
+      </div><!-- /drop-grid -->
+
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how">
+    <div class="wrap">
+      <p class="eyebrow">How the drop works</p>
+      <h2>Three steps, about ninety seconds.</h2>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">01</div>
+          <h3>Text to reserve</h3>
+          <p>Hit the button and send the pre-written message. Your loaf is held under your name the moment we reply.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">02</div>
+          <h3>We confirm</h3>
+          <p>You get a text back with the exact spot and the window. If we&rsquo;ve already sold out, we&rsquo;ll tell you straight and put you first in line tomorrow.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">03</div>
+          <h3>Meet the Subaru</h3>
+          <p>Pull up to the Isla Vista Food Co-op parking lot, say your name, take your bread. Cash or Venmo, both fine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY THIS BREAD ============ -->
+  <section class="why-strip">
+    <div class="wrap why-inner">
+      <div>
+        <p class="eyebrow">Why it&rsquo;s worth the text</p>
+        <h2>Not a consolation prize.</h2>
+        <p>Bali Bread is built on green banana flour &mdash; an ingredient a caf&eacute; in Bali spent more than a decade proving you could actually bake with. The loaf is ours; the conviction came from them. There is no wheat in it, and there was never any wheat to remove: it is what it is because of what it is made from, not because something was taken away.</p>
+        <p class="small" style="color:var(--ink-soft);font-size:.85rem;">Those figures are for the flour. Baking changes them &mdash; <a href="index.html#nutrition">we explain exactly how here</a>.</p>
+      </div>
+      <div class="why-stats">
+        <div class="why-stat"><div class="n">40g</div><div class="l">Resistant starch per 100g of the raw flour</div></div>
+        <div class="why-stat"><div class="n">2&times;</div><div class="l">Resistant starch vs. an ordinary loaf (2025 trial)</div></div>
+        <div class="why-stat"><div class="n">1,491mg</div><div class="l">Potassium per 100g</div></div>
+        <div class="why-stat"><div class="n">4</div><div class="l">Flours: rice, green banana, tapioca, corn. No wheat.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MISSED IT ============ -->
+  <section class="missed">
+    <div class="wrap missed-inner">
+      <p class="eyebrow">Sold out?</p>
+      <h2>Get a heads-up before the next one.</h2>
+      <p>We text the list the night before with what&rsquo;s baking and where we&rsquo;ll be. No spam, no daily blast &mdash; just the drop. Msg &amp; data rates may apply; reply STOP anytime to leave the list.</p>
+      <p><a href="index.html#signup" class="btn btn-primary">Join the list</a></p>
+    </div>
+  </section>
+
+  <div class="legal-line">
+    <div class="wrap">
+      <p id="legalLine">Made in a home kitchen that is not subject to routine government inspection, in compliance with California&rsquo;s Cottage Food Operation law. Produces a product for direct sale to consumers. Allergen and ingredient questions? <a href="index.html#faq" style="color:inherit;">See the FAQ</a>.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <img class="logo-mark logo-mark--footer" src="images/logo.png" alt="The Green Banana logo">
+      <span class="logo-text">The Green Banana</span>
+      <p class="footer-tag">Green banana flour bread &amp; premixes, baked local to the South Coast.</p>
+    </div>
+    <div class="footer-contact">
+      <p>Questions? <a href="mailto:milo@balibread.com">milo@balibread.com</a></p>
+      <p class="footer-note">Isla Vista &middot; Goleta &middot; Santa Barbara</p>
+    </div>
+  </div>
+  <p class="footer-fine">&copy; <span id="year"></span> Green Banana LLC &middot; Santa Barbara County, California. Made in a home kitchen operation that is not subject to routine government food safety inspection.</p>
+</footer>
+
+<script>
+/* ==============================================================
+   ⚙️  TODAY'S DROP — this is the only block you edit each morning.
+   Change the numbers, save, re-upload. That's the whole workflow.
+   ============================================================== */
+
+var DROP = {
+  phone:     "+1 760 567 4351",    // ← YOUR mobile. Reserve button texts this.
+  product:   "Bali Bread",         // what you baked today
+  price:     14,                   // dollars per loaf
+  baked:     12,                   // how many you made
+  claimed:   0,                    // how many are already spoken for
+  where:     "Isla Vista Food Co-op",   // where you'll be parked
+  mapUrl:    "",                   // optional: paste a Google Maps link
+  when:      "4:00 – 6:00 PM",     // pickup window
+  status:    "auto"                // "auto" | "soon" | "live" | "soldout"
+};
+
+/* ============ nothing below here needs editing ============ */
+(function(){
+  var left = Math.max(0, DROP.baked - DROP.claimed);
+  var soldOut = left <= 0;
+  var state = DROP.status === "auto" ? (soldOut ? "soldout" : "live") : DROP.status;
+
+  function $(id){ return document.getElementById(id); }
+  function money(n){ return "$" + Number(n).toFixed(Number(n) % 1 ? 2 : 0); }
+
+  /* --- date line --- */
+  $("dropDate").textContent = new Date().toLocaleDateString(undefined, {
+    weekday: "long", month: "long", day: "numeric"
+  }) + " — today's bake";
+
+  /* --- status pill --- */
+  var pill = $("dropStatus"), pillText = $("dropStatusText");
+  pill.classList.remove("is-soon","is-live","is-out");
+  if (state === "soldout"){ pill.classList.add("is-out"); pillText.textContent = "Sold out for today"; }
+  else if (state === "soon"){ pill.classList.add("is-soon"); pillText.textContent = "Baking now"; }
+  else { pill.classList.add("is-live"); pillText.textContent = "Reserving now"; }
+
+  /* --- counter --- */
+  $("countLeft").textContent  = soldOut ? "0" : left;
+  $("countLabel").textContent = left === 1 ? "loaf left" : "loaves left";
+  $("countOf").textContent    = "of " + DROP.baked + " baked";
+  $("barFill").style.width    = (DROP.baked ? (DROP.claimed / DROP.baked) * 100 : 0) + "%";
+  $("countNote").textContent  = soldOut
+    ? "That's it for today. Tomorrow's batch goes up in the morning."
+    : (left <= 3 ? "Down to the last few — text now if you want one." : "First come, first served.");
+
+  /* --- facts --- */
+  $("factWhat").textContent = DROP.product + " · " + money(DROP.price) + " a loaf";
+  $("factWhere").innerHTML  = DROP.mapUrl
+    ? '<a href="' + DROP.mapUrl + '" target="_blank" rel="noopener">' + DROP.where + '</a>'
+    : DROP.where;
+  $("factWhen").textContent = DROP.when;
+
+  /* --- headline + lede react to state --- */
+  if (soldOut){
+    $("dropHeadline").innerHTML = "Today&rsquo;s batch is <span class=\"accent\">gone</span>.";
+    $("dropLede").textContent = DROP.baked + " loaves, one morning, all spoken for. Get on the list and we'll text you before the next batch goes up.";
+  }
+
+  /* --- reserve button --- */
+  var digits = (DROP.phone || "").replace(/[^\d+]/g, "");
+  var unset  = /^\+?1?8050000000$/.test(digits) || digits.length < 10;
+  var btn = $("reserveBtn");
+
+  if (unset){
+    $("setupWarn").hidden = false;
+    btn.classList.add("is-disabled");
+    btn.setAttribute("aria-disabled", "true");
+    btn.removeAttribute("href");
+  } else if (soldOut){
+    btn.textContent = "Get tomorrow's alert";
+    btn.setAttribute("href", "index.html#signup");
+    $("actionNote").textContent = "We'll text you the night before the next bake.";
+  } else {
+    var msg = "Hi! I'd like to reserve a loaf of " + DROP.product +
+              " for today (" + DROP.when + ", " + DROP.where + "). My name is ";
+    /* "sms:NUMBER?&body=" is the spelling that works on both iOS and Android */
+    btn.setAttribute("href", "sms:" + digits + "?&body=" + encodeURIComponent(msg));
+    btn.textContent = "Reserve a loaf — " + money(DROP.price);
+  }
+
+  /* --- announce bar --- */
+  $("announceBar").textContent = soldOut
+    ? "Sold out today — join the list and we'll text you before the next bake"
+    : left + (left === 1 ? " loaf" : " loaves") + " left today · " + DROP.where + " · " + DROP.when;
+
+  /* --- photo caption --- */
+  $("photoTagName").textContent = DROP.product;
+  $("photoTagKicker").textContent = soldOut ? "Today's batch — sold out" : "Baked this morning";
+
+  /* --- footer year --- */
+  var y = $("year"); if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+<script src="js/app.js"></script>
+</body>
+</html>
