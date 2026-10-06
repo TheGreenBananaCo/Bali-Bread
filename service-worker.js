@@ -2,7 +2,7 @@
 // and works offline for repeat visitors (e.g. checking your plan or the
 // delivery-area info with no signal). Ordering itself still needs network.
 
-const CACHE_NAME = "green-banana-v6";
+const CACHE_NAME = "green-banana-v7";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -31,10 +31,16 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  // Network first: always show the latest site; fall back to the cache offline.
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request).catch(() => cached);
-    })
+    fetch(event.request)
+      .then((res) => {
+        if (res.ok) {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+        }
+        return res;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
