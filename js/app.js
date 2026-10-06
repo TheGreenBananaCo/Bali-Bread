@@ -70,7 +70,7 @@ function initZipChecker() {
       result.textContent = "Good news — we deliver (and offer pickup) in your area.";
       result.className = "zip-result is-yes";
     } else {
-      result.textContent = "We don't deliver there yet, but pickup may still work — join the waitlist and tell us your area.";
+      result.textContent = "We don't deliver there yet, but pickup may still work — sign up for bake alerts and tell us your area.";
       result.className = "zip-result is-no";
     }
   });
@@ -98,7 +98,7 @@ function initPlanButtons() {
         if (match) planSelect.value = planName;
       }
       if (note) {
-        note.textContent = `Online checkout for "${planName}" isn't live yet — join the waitlist below and we'll follow up.`;
+        note.textContent = `Online checkout for "${planName}" isn't live yet — sign up for bake alerts below and we'll follow up.`;
       }
       document.getElementById("signup").scrollIntoView({ behavior: "smooth" });
       document.getElementById("nameInput")?.focus();
@@ -136,7 +136,7 @@ function initSignupForm() {
     }
 
     // Zero-setup fallback: open a pre-filled email to the business.
-    const subject = encodeURIComponent("New waitlist signup — The Green Banana");
+    const subject = encodeURIComponent("New bake alert signup — Bali Bread");
     const body = encodeURIComponent(
       `Name: ${data.name}\n` +
       `Email: ${data.email}\n` +
