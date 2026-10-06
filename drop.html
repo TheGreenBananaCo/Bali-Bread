@@ -227,6 +227,15 @@
   .pick:has(input:focus-visible){ outline:2px solid var(--gold); outline-offset:2px; }
   .pick.is-closed{ opacity:.45; cursor:not-allowed; }
   @media(max-width:620px){ .pickup-choice{ grid-template-columns:1fr; } }
+  .student-sticker{ position:absolute; top:18px; right:18px; z-index:2; width:132px; height:132px; border-radius:50%;
+    background:var(--gold); color:#1f3a26; transform:rotate(9deg); box-shadow:0 0 0 4px var(--gold), 0 10px 24px rgba(0,0,0,.35);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    font-family:var(--font-head); line-height:1.05; border:2px dashed rgba(31,58,38,.4); }
+  .student-sticker .k{ font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+  .student-sticker .p{ font-size:2.1rem; font-weight:800; margin:2px 0; }
+  .student-sticker .s{ font-size:.66rem; font-weight:700; }
+  .student-fine{ font-size:.74rem; color:rgba(247,240,222,.7); margin:10px 2px 0; text-align:right; }
+  @media(max-width:620px){ .student-sticker{ width:108px; height:108px; top:12px; right:12px; } .student-sticker .p{ font-size:1.7rem; } }
 </style>
 </head>
 <body>
@@ -335,12 +344,20 @@
 
        </div><!-- /left col -->
 
+       <div class="drop-photo-wrap" id="studentDeal">
        <div class="drop-photo">
+         <div class="student-sticker" aria-label="UCSB students: $12 a loaf with student ID">
+           <span class="k">UCSB students</span>
+           <span class="p" id="studentPrice">$12</span>
+           <span class="s">a loaf*</span>
+         </div>
          <img src="images/product-bali-bread.jpg" alt="A loaf of Bali Bread, baked from green banana flour">
          <div class="drop-photo-tag">
            <span id="photoTagKicker">Fresh Sunday + Wednesday</span>
            <span style="font-size:.94rem;letter-spacing:0;text-transform:none;color:var(--cream);font-weight:700;margin:0;" id="photoTagName">Bali Bread</span>
          </div>
+       </div>
+       <p class="student-fine" id="studentFine">*Show a current student ID at pickup. Not exclusive to UCSB &mdash; any student ID accepted.</p>
        </div>
 
       </div><!-- /drop-grid -->
@@ -435,6 +452,7 @@ var DROP = {
   phone:     "+1 760 567 4351",    // ← YOUR mobile. Reserve button texts this.
   product:   "Bali Bread",         // what you baked today
   price:     14,                   // dollars per loaf (Wednesday / Sunday pickup)
+  studentPrice: 12,                // dollars per loaf with any student ID
   freshPrice: 14.75,               // dollars per loaf for a fresh bake today
   freshCutoff: 14,                 // fresh-bake orders close at this hour (14 = 2 PM)
   baked:     12,                   // how many you made
@@ -493,6 +511,7 @@ var DROP = {
   var unset  = /^\+?1?8050000000$/.test(digits) || digits.length < 10;
   var btn = $("reserveBtn");
 
+  $("studentPrice").textContent = money(DROP.studentPrice);
   if (unset || soldOut){ $("pickupChoice").hidden = true; }
   if (unset){
     $("setupWarn").hidden = false;
