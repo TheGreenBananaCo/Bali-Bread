@@ -1,0 +1,25 @@
+{
+  "name": "The Green Banana",
+  "short_name": "Green Banana",
+  "description": "Bali Bread and green banana flour — subscription delivery and pickup for Isla Vista, Goleta, and Santa Barbara.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f0de",
+  "theme_color": "#265930",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
