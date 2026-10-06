@@ -212,6 +212,21 @@
     .facts{ grid-template-columns:1fr; }
     .drop-actions .btn{ width:100%; }
   }
+  /* --- pickup choice --- */
+  .pickup-choice{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:0 0 16px; width:100%; border:0; padding:0; }
+  .pickup-choice legend{ font-family:var(--font-head); font-weight:700; font-size:.78rem; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:10px; padding:0; }
+  .pick{ position:relative; display:block; cursor:pointer; border:2px solid rgba(247,240,222,0.28);
+    border-radius:12px; padding:12px 14px; color:var(--cream); transition:border-color .15s, background .15s; }
+  .pick input{ position:absolute; opacity:0; pointer-events:none; }
+  .pick-name{ display:block; font-family:var(--font-head); font-weight:800; font-size:.98rem; }
+  .pick-sub{ display:block; font-size:.8rem; opacity:.8; margin-top:2px; }
+  .pick-price{ display:block; font-weight:800; color:var(--gold); margin-top:6px; }
+  .pick:hover{ border-color:rgba(247,240,222,0.6); }
+  .pick:has(input:checked){ border-color:var(--gold); background:rgba(245,184,60,0.12); }
+  .pick:has(input:focus-visible){ outline:2px solid var(--gold); outline-offset:2px; }
+  .pick.is-closed{ opacity:.45; cursor:not-allowed; }
+  @media(max-width:620px){ .pickup-choice{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -237,6 +252,7 @@
       <a href="index.html#nutrition">The Science</a>
       <a href="index.html#products">Products</a>
       <a href="team.html">Our Team</a>
+      <a href="merch.html">Merch</a>
       <a href="index.html#plans">Subscriptions</a>
       <a href="index.html#faq">FAQ</a>
       <a href="#top" class="nav-cta">Get a Loaf</a>
@@ -297,6 +313,19 @@
           <div class="fact-v" id="factWhen">&mdash;</div>
         </div>
       </div>
+
+      <fieldset class="pickup-choice" id="pickupChoice">
+        <legend>Choose your pickup</legend>
+        <label class="pick"><input type="radio" name="pickup" value="wed">
+          <span class="pick-name">Wednesday pickup</span><span class="pick-sub" id="subWed">Next Wednesday</span>
+          <span class="pick-price" id="priceWed"></span></label>
+        <label class="pick"><input type="radio" name="pickup" value="sun">
+          <span class="pick-name">Sunday pickup</span><span class="pick-sub" id="subSun">Next Sunday</span>
+          <span class="pick-price" id="priceSun"></span></label>
+        <label class="pick" id="pickToday"><input type="radio" name="pickup" value="today">
+          <span class="pick-name">Fresh bake today</span><span class="pick-sub" id="subToday">Order before 2 PM</span>
+          <span class="pick-price" id="priceToday"></span></label>
+      </fieldset>
 
       <div class="drop-actions">
         <a class="btn btn-gold" id="reserveBtn" href="#">Reserve a loaf</a>
@@ -405,7 +434,9 @@
 var DROP = {
   phone:     "+1 760 567 4351",    // ← YOUR mobile. Reserve button texts this.
   product:   "Bali Bread",         // what you baked today
-  price:     14,                   // dollars per loaf
+  price:     14,                   // dollars per loaf (Wednesday / Sunday pickup)
+  freshPrice: 14.75,               // dollars per loaf for a fresh bake today
+  freshCutoff: 14,                 // fresh-bake orders close at this hour (14 = 2 PM)
   baked:     12,                   // how many you made
   claimed:   0,                    // how many are already spoken for
   where:     "Isla Vista Food Co-op",   // where you'll be parked
@@ -445,7 +476,7 @@ var DROP = {
     : (left <= 3 ? "Down to the last few — text now if you want one." : "First come, first served.");
 
   /* --- facts --- */
-  $("factWhat").textContent = DROP.product + " · " + money(DROP.price) + " a loaf";
+  $("factWhat").textContent = DROP.product + " · " + money(DROP.price) + " a loaf (" + money(DROP.freshPrice) + " fresh today)";
   $("factWhere").innerHTML  = DROP.mapUrl
     ? '<a href="' + DROP.mapUrl + '" target="_blank" rel="noopener">' + DROP.where + '</a>'
     : DROP.where;
@@ -462,6 +493,7 @@ var DROP = {
   var unset  = /^\+?1?8050000000$/.test(digits) || digits.length < 10;
   var btn = $("reserveBtn");
 
+  if (unset || soldOut){ $("pickupChoice").hidden = true; }
   if (unset){
     $("setupWarn").hidden = false;
     btn.classList.add("is-disabled");
@@ -472,11 +504,46 @@ var DROP = {
     btn.setAttribute("href", "index.html#signup");
     $("actionNote").textContent = "We'll text you the night before the next bake.";
   } else {
-    var msg = "Hi! I'd like to reserve a loaf of " + DROP.product +
-              " for today (" + DROP.when + ", " + DROP.where + "). My name is ";
-    /* "sms:NUMBER?&body=" is the spelling that works on both iOS and Android */
-    btn.setAttribute("href", "sms:" + digits + "?&body=" + encodeURIComponent(msg));
-    btn.textContent = "Reserve a loaf — " + money(DROP.price);
+    /* --- pickup options --- */
+    var now = new Date();
+    var freshOpen = now.getHours() < DROP.freshCutoff;
+    function nextDay(dow){ var d = new Date(now); d.setDate(d.getDate() + ((dow - d.getDay() + 7) % 7)); return d; }
+    function fmt(d){ return d.toLocaleDateString(undefined, { weekday:"long", month:"short", day:"numeric" }); }
+    var cutoffLabel = (DROP.freshCutoff % 12 || 12) + (DROP.freshCutoff < 12 ? " AM" : " PM");
+    var opts = {
+      wed:   { label: "Wednesday pickup (" + fmt(nextDay(3)) + ")", price: DROP.price },
+      sun:   { label: "Sunday pickup (" + fmt(nextDay(0)) + ")",    price: DROP.price },
+      today: { label: "a fresh bake today (" + fmt(now) + ")",      price: DROP.freshPrice }
+    };
+    $("subWed").textContent = fmt(nextDay(3));
+    $("subSun").textContent = fmt(nextDay(0));
+    $("priceWed").textContent = $("priceSun").textContent = money(DROP.price);
+    $("priceToday").textContent = money(DROP.freshPrice);
+    var todayInput = document.querySelector('input[name="pickup"][value="today"]');
+    if (freshOpen){
+      $("subToday").textContent = "Order before " + cutoffLabel;
+    } else {
+      $("subToday").textContent = "Closed for today — order before " + cutoffLabel;
+      todayInput.disabled = true; $("pickToday").classList.add("is-closed");
+    }
+
+    function update(){
+      var picked = document.querySelector('input[name="pickup"]:checked');
+      if (!picked){
+        btn.removeAttribute("href");
+        btn.textContent = "Choose a pickup above";
+        return;
+      }
+      var o = opts[picked.value];
+      var msg = "Hi! I'd like to reserve a loaf of " + DROP.product + " for " + o.label +
+                " — " + money(o.price) + ". My name is ";
+      /* "sms:NUMBER?&body=" is the spelling that works on both iOS and Android */
+      btn.setAttribute("href", "sms:" + digits + "?&body=" + encodeURIComponent(msg));
+      btn.textContent = "Reserve a loaf — " + money(o.price);
+    }
+    btn.addEventListener("click", function(e){ if (!btn.getAttribute("href")) e.preventDefault(); });
+    document.querySelectorAll('input[name="pickup"]').forEach(function(r){ r.addEventListener("change", update); });
+    update();
   }
 
   /* --- announce bar --- */
